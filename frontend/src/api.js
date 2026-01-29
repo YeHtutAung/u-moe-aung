@@ -12,7 +12,18 @@ async function request(endpoint, options = {}) {
     ...options,
   };
 
-  const response = await fetch(`${API_BASE}${endpoint}`, config);
+  let response;
+  try {
+    response = await fetch(`${API_BASE}${endpoint}`, config);
+  } catch (err) {
+    throw new Error('Cannot connect to server. Make sure backend is running on port 3000.');
+  }
+
+  const contentType = response.headers.get('content-type');
+  if (!contentType || !contentType.includes('application/json')) {
+    throw new Error('Server returned non-JSON response. Check if backend is running.');
+  }
+
   const data = await response.json();
 
   if (!response.ok) {
