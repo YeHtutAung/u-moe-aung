@@ -1,0 +1,651 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+/* Auth Container */
+.auth-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-container h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+/* Role Toggle */
+.role-toggle {
+  display: flex;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.role-toggle button {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  background: #f8f9fa;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.role-toggle button.active {
+  background: #3498db;
+  color: #fff;
+}
+
+.role-toggle button:hover:not(.active) {
+  background: #e9ecef;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+/* Buttons */
+.btn-primary {
+  width: 100%;
+  padding: 0.875rem;
+  background: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #2980b9;
+}
+
+.btn-primary:disabled {
+  background: #95a5a6;
+  cursor: not-allowed;
+}
+
+.btn-logout {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.btn-logout:hover {
+  background: #e74c3c;
+  color: #fff;
+}
+
+/* Error Message */
+.error {
+  background: #fee;
+  color: #c00;
+  padding: 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+/* Success Message */
+.success {
+  background: #d4edda;
+  color: #155724;
+  padding: 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+/* Auth Link */
+.auth-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #666;
+}
+
+.auth-link a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+
+/* Dashboard */
+.dashboard {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.dashboard header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.dashboard header h1 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-info span {
+  color: #666;
+  font-size: 0.875rem;
+}
+
+/* Dashboard Navigation */
+.dashboard-nav {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  background: #fff;
+  padding: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-nav a {
+  flex: 1;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  color: #666;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.dashboard-nav a:hover {
+  background: #f8f9fa;
+  color: #333;
+}
+
+.dashboard-nav a.active {
+  background: #3498db;
+  color: #fff;
+}
+
+/* List Header */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.list-header h2 {
+  margin-bottom: 0;
+}
+
+/* Filter Tabs */
+.filter-tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-tabs button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.filter-tabs button:hover {
+  background: #f8f9fa;
+}
+
+.filter-tabs button.active {
+  background: #3498db;
+  color: #fff;
+  border-color: #3498db;
+}
+
+/* Status Badge */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status-answered {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+/* Question Header */
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+/* Ask Section */
+.ask-section {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.ask-section h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.ask-section textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  resize: vertical;
+  margin-bottom: 1rem;
+}
+
+.ask-section textarea:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+/* Questions Section */
+.questions-section {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.questions-section h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.no-data {
+  color: #888;
+  font-style: italic;
+}
+
+/* Question Card */
+.question-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.question-card:last-child {
+  margin-bottom: 0;
+}
+
+.question-card.answered {
+  opacity: 0.8;
+}
+
+.question {
+  margin-bottom: 1rem;
+}
+
+.question .label,
+.reply .label {
+  display: block;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.question p,
+.reply p {
+  margin-bottom: 0.5rem;
+}
+
+.question .date,
+.reply .date {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.question-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.question-meta strong {
+  color: #2c3e50;
+}
+
+.question-meta span {
+  color: #888;
+  font-size: 0.875rem;
+}
+
+/* Reply */
+.reply {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 6px;
+  border-left: 3px solid #3498db;
+}
+
+.pending {
+  background: #fff3cd;
+  padding: 0.75rem;
+  border-radius: 6px;
+  color: #856404;
+  font-size: 0.875rem;
+}
+
+/* Reply Form */
+.reply-form {
+  margin-top: 1rem;
+}
+
+.reply-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  resize: vertical;
+  margin-bottom: 0.75rem;
+}
+
+.reply-form textarea:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.reply-form .btn-primary {
+  width: auto;
+  padding: 0.625rem 1.25rem;
+}
+
+/* Search Box */
+.search-box {
+  margin-bottom: 1rem;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+/* Stats Section */
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.stat-value {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3498db;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+/* Users List */
+.users-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.user-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.user-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.user-card-header:hover {
+  background: #f8f9fa;
+}
+
+.user-main-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.user-main-info strong {
+  color: #2c3e50;
+}
+
+.user-email {
+  font-size: 0.875rem;
+  color: #888;
+}
+
+.user-stats {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stat-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  background: #e9ecef;
+  color: #666;
+}
+
+.stat-badge.answered {
+  background: #d4edda;
+  color: #155724;
+}
+
+.expand-icon {
+  color: #999;
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+.user-details {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-top: 1px solid #eee;
+}
+
+.detail-row {
+  display: flex;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-weight: 500;
+  color: #555;
+  width: 140px;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .auth-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .dashboard {
+    padding: 0.5rem;
+  }
+
+  .dashboard header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .user-info {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .question-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .dashboard-nav {
+    flex-direction: column;
+  }
+
+  .list-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-tabs {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .filter-tabs button {
+    flex: 1;
+    min-width: calc(50% - 0.25rem);
+  }
+
+  .stats-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .user-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .user-stats {
+    flex-wrap: wrap;
+  }
+
+  .detail-row {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .detail-label {
+    width: auto;
+  }
+}
