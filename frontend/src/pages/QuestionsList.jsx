@@ -68,13 +68,13 @@ export default function QuestionsList() {
                 All ({questions.length})
               </button>
               <button
-                className={filter === 'answered' ? 'active' : ''}
+                className={`filter-answered ${filter === 'answered' ? 'active' : ''}`}
                 onClick={() => setFilter('answered')}
               >
                 Answered ({answeredCount})
               </button>
               <button
-                className={filter === 'pending' ? 'active' : ''}
+                className={`filter-pending ${filter === 'pending' ? 'active' : ''}`}
                 onClick={() => setFilter('pending')}
               >
                 Pending ({pendingCount})

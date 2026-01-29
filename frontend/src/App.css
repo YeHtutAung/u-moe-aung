@@ -268,23 +268,59 @@ body {
   border-color: #3498db;
 }
 
+.filter-tabs button.filter-answered.active {
+  background: #28a745;
+  border-color: #28a745;
+}
+
+.filter-tabs button.filter-pending.active {
+  background: #ffc107;
+  border-color: #ffc107;
+  color: #212529;
+}
+
 /* Status Badge */
 .status-badge {
   display: inline-block;
-  padding: 0.25rem 0.75rem;
+  padding: 0.35rem 0.875rem;
   border-radius: 20px;
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .status-answered {
-  background: #d4edda;
-  color: #155724;
+  background: #28a745;
+  color: #fff;
 }
 
-.status-pending {
-  background: #fff3cd;
-  color: #856404;
+.status-pending,
+.status-unanswered {
+  background: #ffc107;
+  color: #212529;
+}
+
+/* Count Badge (for section headers) */
+.count-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.count-badge.answered {
+  background: #28a745;
+  color: #fff;
+}
+
+.count-badge.pending,
+.count-badge.unanswered {
+  background: #ffc107;
+  color: #212529;
 }
 
 /* Question Header */
@@ -410,11 +446,13 @@ body {
 }
 
 .pending {
-  background: #fff3cd;
-  padding: 0.75rem;
+  background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
+  padding: 0.75rem 1rem;
   border-radius: 6px;
-  color: #856404;
+  color: #664d03;
   font-size: 0.875rem;
+  font-weight: 500;
+  border-left: 3px solid #ffc107;
 }
 
 /* Reply Form */
@@ -541,13 +579,19 @@ body {
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
   font-size: 0.75rem;
-  background: #e9ecef;
-  color: #666;
+  font-weight: 500;
+  background: #6c757d;
+  color: #fff;
 }
 
 .stat-badge.answered {
-  background: #d4edda;
-  color: #155724;
+  background: #28a745;
+  color: #fff;
+}
+
+.stat-badge.pending {
+  background: #ffc107;
+  color: #212529;
 }
 
 .expand-icon {

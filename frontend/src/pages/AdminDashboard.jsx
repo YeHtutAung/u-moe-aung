@@ -72,7 +72,7 @@ export default function AdminDashboard() {
         {error && <div className="error">{error}</div>}
 
         <section className="questions-section">
-          <h2>Unanswered Questions ({unanswered.length})</h2>
+          <h2>Unanswered Questions <span className="count-badge pending">{unanswered.length}</span></h2>
           {loading ? (
             <p>Loading...</p>
           ) : unanswered.length === 0 ? (
@@ -111,7 +111,7 @@ export default function AdminDashboard() {
         </section>
 
         <section className="questions-section">
-          <h2>Answered Questions ({answered.length})</h2>
+          <h2>Answered Questions <span className="count-badge answered">{answered.length}</span></h2>
           {answered.length === 0 ? (
             <p className="no-data">No answered questions yet.</p>
           ) : (
